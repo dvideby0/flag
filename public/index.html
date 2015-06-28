@@ -18,6 +18,14 @@
 
     function onLogin(response) {
       if (response.status == 'connected') {
+        FB.api(
+          "/{user-id}/picture",
+          function (response) {
+            if (response && !response.error) {
+        console.log(JSON.stringify(response);
+            }
+          }
+        );
         FB.api('/me?fields=first_name', function(data) {
           var welcomeBlock = document.getElementById('fb-welcome');
           welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
