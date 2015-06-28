@@ -12,9 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer({ dest: './uploads/'}));
 app.use('/', express.static('public'));
 
-app.post('/', function(req, res){
+app.post('/image', function(req, res){
   console.log(req.body) // form fields
-  if(req.files.filefield) {
     var file = req.files.filefield.path;
 
     var filename = path.basename(file);
@@ -28,7 +27,8 @@ app.post('/', function(req, res){
         var filestream = fs.createReadStream(file);
         filestream.pipe(res);
     });
-  }
 });
+
+app.post('/facebook', express.static('public'))
 
 app.listen(process.env.PORT || 8000);
