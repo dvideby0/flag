@@ -28,7 +28,7 @@ app.post('/image', function(req, res){
     });
 });
 
-app.post("/facebook", function(req, res, next) {
+app.post("/facebook/index.html", function(req, res, next) {
   req.method = "GET";
   next();
 });
