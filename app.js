@@ -7,14 +7,7 @@ var express = require('express');
 var multer  = require('multer');
 var app = express();
 app.use(multer({ dest: './uploads/'}));
-app.get('/', function(req, res){
-  res.send('<html><head></head><body>\
-               <form method="POST" enctype="multipart/form-data">\
-                <input type="file" name="filefield"><br />\
-                <input type="submit">\
-              </form>\
-            </body></html>');
-});
+app.use('/', express.static('public'));
 
 app.post('/', function(req, res){
   console.log(req.body) // form fields
