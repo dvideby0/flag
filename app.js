@@ -29,6 +29,6 @@ app.post('/image', function(req, res){
     });
 });
 
-app.post('/facebook', express.static('public'))
+app.post('/facebook/', express.static('public'))
 
 app.listen(process.env.PORT || 8000);
