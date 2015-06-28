@@ -14,7 +14,7 @@ app.use('/', express.static('public'));
 
 app.post('/', function(req, res){
   console.log(req.body) // form fields
-  if(req.files) {
+  if(req.files.filefield) {
     var file = req.files.filefield.path;
 
     var filename = path.basename(file);
