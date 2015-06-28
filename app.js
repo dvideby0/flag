@@ -4,14 +4,16 @@ var path = require('path');
 var mime = require('mime');
 var fs = require('fs');
 var express = require('express');
-var multer  = require('multer');
+var bodyParser = require('body-parser');
+var multer = require('multer');
 var app = express();
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer({ dest: './uploads/'}));
 app.use('/', express.static('public'));
 
 app.post('/', function(req, res){
   console.log(req.body) // form fields
-  console.log(req.files.filefield.path) // form files
   if(req.files) {
     var file = req.files.filefield.path;
 
