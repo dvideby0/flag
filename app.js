@@ -10,8 +10,7 @@ var app = express();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer({ dest: './uploads/'}));
-app.use('/', express.static('public'));
-
+app.use('/facebook', express.static('public'));
 app.post('/image', function(req, res){
   console.log(req.body) // form fields
     var file = req.files.filefield.path;
@@ -33,7 +32,5 @@ app.post("/facebook", function(req, res, next) {
   req.method = "GET";
   next();
 });
-
-app.get('/facebook', express.static('public'));
 
 app.listen(process.env.PORT || 8000);
