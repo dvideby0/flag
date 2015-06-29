@@ -27,7 +27,7 @@ body {
   border: none;
 }
 
-#instructions, #fb-welcome, #fb-welcome2 {
+#fb-welcome, #fb-welcome2 {
   display: none;
   width: 400px;
   text-align: center;
