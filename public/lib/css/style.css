@@ -1,0 +1,33 @@
+html {
+  font-family: helvetica, arial, sans-serif;
+}
+
+body {
+  text-align: center;
+}
+#submitbtn {
+  display: none;
+  background-color: #3b5998;
+  color: #ffffff;
+  width: 200px;
+  height: 30px;
+  border: none;
+  font-size:1em;
+  margin-top: 20px;
+}
+
+#filename {
+  display: none;
+}
+
+#profile-pic {
+  width: 200px;
+  height: 200px;
+  border: none;
+}
+
+#instructions, #fb-welcome {
+  display: none;
+  width: 390px;
+  text-align: center;
+}
