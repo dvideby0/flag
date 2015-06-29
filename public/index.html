@@ -3,10 +3,8 @@
 </head>
 <body>
   <h1 id="fb-welcome"></h1>
-  <form method="POST" action="/image" enctype="multipart/form-data">
-    <input type="file" name="filefield"><br />
-    <input type="submit">
-  </form>
+  <div id="info"></div>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -22,7 +20,7 @@
           "/{user-id}/picture",
           function (response) {
             if (response && !response.error) {
-        console.log(JSON.stringify(response));
+        $('#info').val(JSON.stringify(response));
             }
           }
         );
