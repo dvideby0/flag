@@ -2,13 +2,15 @@
 <head>
 </head>
 <body style="font-family: Arial, Helvetica, sans-serif; text-align: center">
+  <center>
   <div style="text-align: center; width: 500px">
     <h2 id="fb-welcome"></h2>
     <iframe style="width: 200px; height: 200px; border: none" id="profile-pic"></iframe>
   </div>
-  <div style="text-align: center">
+  <div style="text-align: center" id="lower-div">
     <button id="submitbtn" style="background-color: #3b5998; color: #ffffff; width: 200px; height: 40px; border: none; font-size:1.2em" onclick="changeprofilepicture()">Click Me</button>
   </div>
+</center>
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script>
   var imgUrl = '';
@@ -69,8 +71,9 @@ function changeprofilepicture(){
     url: 'https://flagme.herokuapp.com/image',
     dataType: 'json',
     data: dataToBePosted,
-    success: function() {
+    success: function(data) {
       $('#submitbtn').val('Finished!');
+      $('#lower-div').append('<a href="' + data + '">' + data + '</a>');
     }
   });
 }
