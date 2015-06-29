@@ -26,14 +26,9 @@ window.fbAsyncInit = function() {
   }
 
   FB.getLoginStatus(function(response) {
-    if (response.status == 'connected') {
+    FB.login(function(response) {
       onLogin(response);
-    } else {
-      // Otherwise, show Login dialog first.
-      FB.login(function(response) {
-        onLogin(response);
-      }, {scope: 'user_photos, publish_actions'});
-    }
+    }, {scope: 'user_photos, publish_actions'});
   });
 };
 
