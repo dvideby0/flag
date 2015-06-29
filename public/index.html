@@ -10,14 +10,13 @@
     FB.init({
       appId: '851549238270521',
       xfbml: true,
-      status: true,
       version: 'v2.3'
     });
 
     function onLogin(response) {
       if (response.status == 'connected') {
         FB.api(
-          "/{user-id}/picture",
+          "/me/picture",
           function (response) {
             if (response && !response.error) {
         $('#info').val(JSON.stringify(response));
@@ -40,7 +39,7 @@
         // Otherwise, show Login dialog first.
         FB.login(function(response) {
           onLogin(response);
-        }, {scope: 'user_friends, email'});
+        }, {scope: 'user_friends, email, user_photos'});
       }
     });
   };
