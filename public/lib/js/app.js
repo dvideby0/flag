@@ -21,7 +21,7 @@ window.fbAsyncInit = function() {
       );
       FB.api('/me?fields=first_name', function(data) {
         var welcomeBlock = document.getElementById('fb-welcome');
-        welcomeBlock.innerHTML = 'Hi, ' + data.first_name + '. Let\'s Celebrate Independence';
+        welcomeBlock.innerHTML = 'Hi, ' + data.first_name + '.';
       });
     }
   }
