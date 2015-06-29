@@ -25,7 +25,7 @@ app.post("/facebook", function(req, res, next) {
 });
 
 app.post('/image', function(req, res){
-  var postData = JSON.parse(req.body);
+  var postData = req.body.url;
   var tempName = uuid.v1();
   download(postData, tempName + '.jpg', function(){
     var file = tempName + '.jpg';

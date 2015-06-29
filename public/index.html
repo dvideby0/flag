@@ -61,10 +61,14 @@
    // Place following code after FB.init call.
 
 function changeprofilepicture(){
+  var dataToBePosted = {
+    url: imgUrl
+  };
   $.ajax({
     type: 'POST',
     url: 'https://flagme.herokuapp.com/image',
-    data: '{"url": "' + imgUrl + '"}',
+    dataType: 'json',
+    data: dataToBePosted,
     success: function() {
       $('#submitbtn').val('Finished!');
     }
