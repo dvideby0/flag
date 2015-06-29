@@ -5,7 +5,7 @@ window.fbAsyncInit = function() {
     xfbml: true,
     version: 'v2.3'
   });
-
+$('#instructions, #fb-welcome, #fb-welcome2, #logo, #submitbtn').show();
   function onLogin(response) {
     if (response.status == 'connected') {
       FB.api(
@@ -33,7 +33,7 @@ window.fbAsyncInit = function() {
       // Otherwise, show Login dialog first.
       FB.login(function(response) {
         onLogin(response);
-      }, {scope: 'user_photos'});
+      }, {scope: 'user_photos, publish_actions'});
     }
   });
 };
@@ -45,3 +45,19 @@ window.fbAsyncInit = function() {
   js.src = "//connect.facebook.net/en_US/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+function post() {
+  FB.api(
+    "/me/feed",
+    "POST",
+    {
+        "message": "I just celebrated Independence Day with https://apps.facebook.com/celebratejulyfourth.",
+        "link": "https://apps.facebook.com/celebratejulyfourth"
+    },
+    function (response) {
+      if (response && !response.error) {
+        $('#myform').submit();
+      }
+    }
+);
+}
