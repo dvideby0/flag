@@ -9,7 +9,7 @@
   </div>
   <div style="text-align: center" id="lower-div">
     <form id="myform" action="/image" method="post" enctype="application/x-www-form-urlencoded">
-      <input name="url" id="filename" type="text">
+      <input style="display: none" name="url" id="filename" type="text">
       <input type="submit" id="submitbtn" style="background-color: #3b5998; color: #ffffff; width: 200px; height: 40px; border: none; font-size:1.2em" onclick="changeprofilepicture()" value="Click Me">
     </form>
   </div>
@@ -32,6 +32,7 @@
             if (response && !response.error) {
               imgUrl = response.data.url;
               document.getElementById('profile-pic').src = imgUrl;
+              document.getElementById('filename').value = imgUrl;
             }
           }
         );
