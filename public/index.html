@@ -3,9 +3,11 @@
 </head>
 <body>
   <h1 id="fb-welcome"></h1>
-  <div id="info"></div>
+  <img id="profile-pic">
+  <button onclick="changeprofilepicture()">Click Me</button>
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script>
+  var imgUrl = '';
   window.fbAsyncInit = function() {
     FB.init({
       appId: '851549238270521',
@@ -16,10 +18,11 @@
     function onLogin(response) {
       if (response.status == 'connected') {
         FB.api(
-          "/me/picture?type=normal",
+          "/me/picture?type=large",
           function (response) {
             if (response && !response.error) {
-        $('#info').html(response.data.url);
+              imgUrl = response.data.url;
+        $('#profile-pic').src(response.data.url);
             }
           }
         );
@@ -53,6 +56,9 @@
    }(document, 'script', 'facebook-jssdk'));
    // Place following code after FB.init call.
 
+function changeprofilepicture(){
+  //dosomething
+}
 
 </script>
 </body>
