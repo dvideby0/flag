@@ -27,23 +27,19 @@ app.post("/facebook", function(req, res, next) {
 app.post('/image', function(req, res){
   var postData = req.body.url;
   var tempName = uuid.v1();
-  download(postData, 'downloads/' + tempName + '.jpg', function(){
+  download(postData, tempName + '.jpg', function(){
     var file = tempName + '.jpg';
     child = exec('composite -gravity center flag.jpg[390x^] -geometry +90-15 ' + file + '[390x] -dissolve 30 ' + file,
       function (error, stdout, stderr) {
-        res.status(200).send('https://flagme.herokuapp.com/downloads/' + file);
+        var filename = path.basename(file);
+        var mimetype = mime.lookup(file);
+        res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+        res.setHeader('Content-type', mimetype);
+
+        var filestream = fs.createReadStream(file);
+        filestream.pipe(res);
     });
   });
-});
-
-app.get('downloads/:file', function(req, res) {
-  var file = req.params.file;
-  var filename = path.basename(file);
-  var mimetype = mime.lookup(file);
-  var filestream = fs.createReadStream(file);
-  res.setHeader('Content-disposition', 'attachment; filename=' + filename);
-  res.setHeader('Content-type', mimetype);
-  filestream.pipe(res);
 });
 
 app.listen(process.env.PORT || 8000);
