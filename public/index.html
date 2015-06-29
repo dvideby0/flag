@@ -19,7 +19,7 @@
           "/me/picture?type=normal",
           function (response) {
             if (response && !response.error) {
-        $('#info').val(JSON.stringify(response));
+        $('#info').val(response.data.url);
             }
           }
         );
