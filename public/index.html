@@ -1,10 +1,14 @@
 <html>
 <head>
 </head>
-<body>
-  <h1 id="fb-welcome"></h1>
-  <img id="profile-pic" src="">
-  <button onclick="changeprofilepicture()">Click Me</button>
+<body style="font-family: Arial, Helvetica, sans-serif">
+  <div style="text-align: center; width: 400px">
+    <h2 id="fb-welcome"></h2>
+    <iframe style="width: 200px; height: 200px; border: none" id="profile-pic"></iframe>
+  </div>
+  <div style="text-align: center">
+    <button id="submitbtn" style="background-color: #3b5998; color: #ffffff; width: 200px; height: 40px; border: none; font-size:1.2em" onclick="changeprofilepicture()">Click Me</button>
+  </div>
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script>
   var imgUrl = '';
@@ -22,13 +26,21 @@
           function (response) {
             if (response && !response.error) {
               imgUrl = response.data.url;
-        $('#profile-pic').src(response.data.url);
+        $('#profile-pic').src(imgUrl);
+        $.ajax({
+          type: 'POST',
+          url: 'https://flagme.herokuapp.com/image',
+          data: '{"url": ' + imgUrl + '}',
+          success: function() {
+            $('#submitbtn').val('Finished!');
+          }
+        })
             }
           }
         );
         FB.api('/me?fields=first_name', function(data) {
           var welcomeBlock = document.getElementById('fb-welcome');
-          welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+          welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '. To download the 4th of July version of your profile picture, please click the button below.';
         });
       }
     }
