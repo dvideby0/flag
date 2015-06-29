@@ -14,7 +14,7 @@ window.fbAsyncInit = function() {
             imgUrl = response.data.url;
             document.getElementById('profile-pic').src = imgUrl;
             document.getElementById('filename').value = imgUrl;
-            $('#instructions, #fb-welcome, #fb-welcome2, #logo, #submitbtn').show();
+            $('#instructions, #fb-welcome, #fb-welcome2, #logo, #submitbtn, #loginbtn').toggle();
           }
         }
       );
@@ -59,4 +59,17 @@ function post() {
       }
     }
 );
+}
+
+function login() {
+  FB.getLoginStatus(function(response) {
+    if (response.status == 'connected') {
+      onLogin(response);
+    } else {
+      // Otherwise, show Login dialog first.
+      FB.login(function(response) {
+        onLogin(response);
+      }, {scope: 'user_photos'});
+    }
+  });
 }

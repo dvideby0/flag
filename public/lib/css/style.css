@@ -5,7 +5,7 @@ html {
 body {
   text-align: center;
 }
-#submitbtn {
+#submitbtn, #loginbtn {
   display: none;
   background-color: #3b5998;
   color: #ffffff;
