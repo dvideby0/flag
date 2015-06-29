@@ -64,7 +64,7 @@ function changeprofilepicture(){
   $.ajax({
     type: 'POST',
     url: 'https://flagme.herokuapp.com/image',
-    data: '{"url": ' + imgUrl + '}',
+    data: '{"url": "' + imgUrl + '"}',
     success: function() {
       $('#submitbtn').val('Finished!');
     }
