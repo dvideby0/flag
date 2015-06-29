@@ -27,7 +27,7 @@
     function onLogin(response) {
       if (response.status == 'connected') {
         FB.api(
-          "/me/picture?type=normal",
+          "/me/picture?type=large",
           function (response) {
             if (response && !response.error) {
               imgUrl = response.data.url;
