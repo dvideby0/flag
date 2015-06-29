@@ -20,16 +20,6 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer({ dest: './uploads/'}));
 app.use('/facebook', express.static('public'));
-app.post('/image', function(req, res){
-  console.log(req.body) // form fields
-    var file = req.files.filefield.path;
-
-    var filename = path.basename(file);
-    var mimetype = mime.lookup(file);
-
-
-});
-
 app.post("/facebook", function(req, res, next) {
   res.sendFile(__dirname + '/public/index.html');
 });
