@@ -33,6 +33,6 @@ body {
   text-align: center;
 }
 
-#fb-welcome {
-  font-size: 1.6em;
+#fb-welcome, #fb-welcome2 {
+  font-size: 1.7em;
 }
