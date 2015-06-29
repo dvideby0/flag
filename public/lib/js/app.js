@@ -5,7 +5,6 @@ window.fbAsyncInit = function() {
     xfbml: true,
     version: 'v2.3'
   });
-$('#instructions, #fb-welcome, #fb-welcome2, #logo, #submitbtn').show();
   function onLogin(response) {
     if (response.status == 'connected') {
       FB.api(
