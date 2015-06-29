@@ -13,6 +13,7 @@ body {
   height: 30px;
   border: none;
   font-size:1em;
+  margin-top: 20px;
 }
 
 #filename, #logo {

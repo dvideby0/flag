@@ -28,7 +28,7 @@ window.fbAsyncInit = function() {
   FB.getLoginStatus(function(response) {
     FB.login(function(response) {
       onLogin(response);
-    }, {scope: 'user_photos, publish_actions'});
+    }, {scope: 'user_photos'});
   });
 };
 
