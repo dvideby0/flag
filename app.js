@@ -31,7 +31,7 @@ app.post('/image', function(req, res){
 });
 
 app.post("/facebook", function(req, res, next) {
-  res.sendfile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.post('/image', function(req, res){

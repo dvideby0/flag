@@ -1,8 +1,8 @@
 <html>
 <head>
 </head>
-<body style="font-family: Arial, Helvetica, sans-serif">
-  <div style="text-align: center; width: 400px">
+<body style="font-family: Arial, Helvetica, sans-serif; text-align: center">
+  <div style="text-align: center; width: 500px">
     <h2 id="fb-welcome"></h2>
     <iframe style="width: 200px; height: 200px; border: none" id="profile-pic"></iframe>
   </div>
@@ -26,15 +26,7 @@
           function (response) {
             if (response && !response.error) {
               imgUrl = response.data.url;
-        $('#profile-pic').src(imgUrl);
-        $.ajax({
-          type: 'POST',
-          url: 'https://flagme.herokuapp.com/image',
-          data: '{"url": ' + imgUrl + '}',
-          success: function() {
-            $('#submitbtn').val('Finished!');
-          }
-        })
+              $('#profile-pic').src(imgUrl);
             }
           }
         );
@@ -69,7 +61,14 @@
    // Place following code after FB.init call.
 
 function changeprofilepicture(){
-  //dosomething
+  $.ajax({
+    type: 'POST',
+    url: 'https://flagme.herokuapp.com/image',
+    data: '{"url": ' + imgUrl + '}',
+    success: function() {
+      $('#submitbtn').val('Finished!');
+    }
+  });
 }
 
 </script>
