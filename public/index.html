@@ -16,7 +16,7 @@
     function onLogin(response) {
       if (response.status == 'connected') {
         FB.api(
-          "/me/picture",
+          "/me/picture?type=normal",
           function (response) {
             if (response && !response.error) {
         $('#info').val(JSON.stringify(response));
