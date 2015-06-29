@@ -27,7 +27,7 @@ app.post("/facebook", function(req, res, next) {
 app.post('/image', function(req, res){
   var postData = req.body.url;
   var tempName = uuid.v1();
-  download(postData, 'downloads/'tempName + '.jpg', function(){
+  download(postData, 'downloads/' + tempName + '.jpg', function(){
     var file = tempName + '.jpg';
     child = exec('composite -gravity center flag.jpg[390x^] -geometry +90-15 ' + file + '[390x] -dissolve 30 ' + file,
       function (error, stdout, stderr) {
