@@ -30,7 +30,7 @@ app.post('/image', function(req, res){
   var tempName = uuid.v1();
   download(postData, tempName + '.jpg', function(){
     var file = tempName + '.jpg';
-    child = exec('composite -gravity center flag.jpg[390x^] -geometry +90-15 ' + file + '[390x] -dissolve 30 ' + file,
+    child = exec('composite -gravity center flag.jpg[390x^] -geometry +115-0 ' + file + '[390x] -dissolve 30 ' + file,
       function (error, stdout, stderr) {
         var filename = path.basename(file);
         var mimetype = mime.lookup(file);
