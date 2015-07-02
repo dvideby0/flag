@@ -14,7 +14,7 @@ window.fbAsyncInit = function() {
             imgUrl = response.data.url;
             document.getElementById('profile-pic').src = imgUrl;
             document.getElementById('filename').value = imgUrl;
-            $('#instructions, #fb-welcome, #fb-welcome2, #logo, #submitbtn, #loginbtn, #loadimg').toggle();
+            $('#instructions, #fb-welcome, #fb-welcome2, #logo, #submitbtn, #loginbtn, #loadimg, #lower-div').toggle();
           }
         }
       );
