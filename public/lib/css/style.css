@@ -2,9 +2,31 @@ html {
   font-family: helvetica, arial, sans-serif;
 }
 
-body {
+.main{
   text-align: center;
+  width: 500px;
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
 }
+
+.line {
+  color: #aaaaaa;
+  margin-left: -100px;
+}
+
+.line2 {
+  color: #aaaaaa;
+  margin-left: -125px;
+}
+
+#instructions {
+  margin-top: 20px;
+  margin-left: 50%;
+  text-align: left;
+  width: 400px;
+}
+
 #submitbtn, #loginbtn {
   display: none;
   background-color: #3b5998;
@@ -35,4 +57,8 @@ body {
 
 #fb-welcome, #fb-welcome2 {
   font-size: 1.7em;
+}
+
+#lower-div {
+  display: none;
 }
