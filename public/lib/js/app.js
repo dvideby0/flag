@@ -15,7 +15,7 @@ window.fbAsyncInit = function() {
             document.getElementById('profile-pic').src = imgUrl;
             document.getElementById('filename').value = imgUrl;
             //Brandon this is what hides and shows everything after a user is logged into FB
-            $('#instructions, #fb-welcome, #fb-welcome2, #logo, #submitbtn, #loginbtn, #loadimg, #lower-div').toggle();
+            $('#instructions, #fb-welcome, #fb-welcome2, #logo, #submitbtn, #loginbtn, #profile-pic, #loadimg, #lower-div').toggle();
           }
         }
       );
