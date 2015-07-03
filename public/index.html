@@ -4,47 +4,33 @@
 </head>
 <body>
   <div class="main">
-    <img id="loadimg" src="load.png" style="width: 500px; margin-top: 100px">
-    <br>
-    <div id="instructions">
-      <span class="line">1. Click Start</span>
-      <br>
-      <span class="line">2. Click Download Button</span>
-      <br>
-      <span class="line">3. Save Image</span>
-      <br>
-      <span class="line">4. Upload Image To Your Facebook</span>
-    </div>
-    <button id="loginbtn" onclick="login()" style="display: block; position: absolute; left: 50%; margin-left: -100px; top: 500px; font-size: 1.4em; height: 40px;">Start</button>
-    <div style="text-align: center; width: 500px">
-      <span id="fb-welcome"></span>
-      <br />
-      <span id="fb-welcome2">Let's Celebrate Independence</span>
-      <img style="max-width: 300px; display: none" id="profile-pic">
-    </div>
+    <h1 class="fb-welcome"></h1>
+    <h1 class="fb-welcome2">Let's Celebrate Independence!</h1>
+    <img id="loadimg" src="load.png">
+    <h2 id="start-text">Click Start to begin</h2>
+    <button id="loginbtn" onclick="login()">Start</button>
     <div id="lower-div">
-      <div style="width: 400px; text-align: left; margin-left: 50%">
-        <span class="line2">1. Click Start</span>
-        <br>
-        <span class="line2">2. Click Download Button</span>
-        <br>
-        <span class="line2">3. Save Image</span>
-        <br>
-        <span class="line2">4. Upload Image To Your Facebook</span>
-      </div>
+      <img id="profile-pic">
+      <ol id="instructions">
+        <li>Click Download Button</li>
+        <li>Save Image</li>
+        <li>Upload Image to your Facebook</li>
+      </ol>
       <form id="myform" action="/image" method="post" enctype="application/x-www-form-urlencoded">
         <input name="url" id="filename" type="text">
         <input type="submit" id="submitbtn" value="Download">
       </form>
-      <div id="logo" style="text-align: center; margin-top: 20px">
-        <div class="fb-like" data-href="https://www.facebook.com/americanflagprofilepicturetool/" data-width="150" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-        <br />
-        <br />
-        <span style="color: #aaaaaa">Made With &#9829; By </span>
-        <br>
-      <a target=”_top” href="http://www.352inc.com/?utm_source=FBapp&utm_medium=logo&utm_campaign=Independence"><img style="width: 150px" src="logo.svg"></a>
-      </div>
-    <div>
+    </div>
+    <!--/lower-div-->
+    <div id="logo">
+      <div class="fb-like" data-href="https://www.facebook.com/americanflagprofilepicturetool/" data-width="150" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+      <span>Made with &#9829; by </span>
+      <a target="_blank" href="http://www.352inc.com/?utm_source=FBapp&utm_medium=logo&utm_campaign=Independence"><img src="logo.svg"></a>
+      <span>Happy 4th of July!</span>
+    </div>
+    <!--/logo-->
+  </div>
+  <!--/main-->
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="lib/js/app.js"></script>
 </body>
