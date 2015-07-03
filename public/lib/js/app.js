@@ -1,5 +1,5 @@
 var imgUrl = '';
-$('.fb-welcome, #start-text, #loginbtn, #loadimg, #lower-div').toggle();
+//$('.fb-welcome, #start-text, #loginbtn, #loadimg, #lower-div').toggle();
 window.fbAsyncInit = function() {
   FB.init({
     appId: '851549238270521',
@@ -15,8 +15,7 @@ window.fbAsyncInit = function() {
             imgUrl = response.data.url;
             document.getElementById('profile-pic').src = imgUrl;
             document.getElementById('filename').value = imgUrl;
-            //Brandon this is what hides and shows everything after a user is logged into FB
-            $('.fb-welcome, #loginbtn, #loadimg, #lower-div').toggle();
+            $('.fb-welcome, #start-text, #loginbtn, #loadimg, #lower-div').toggle();
           }
         }
       );
